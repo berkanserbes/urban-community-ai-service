@@ -1,0 +1,9 @@
+# Keep the image context intentionally limited to runtime files.
+**
+
+!app/
+!app/**
+!requirements.txt
+
+app/**/__pycache__/
+app/**/*.py[cod]
