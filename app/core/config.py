@@ -28,9 +28,15 @@ class Settings(BaseSettings):
     LLM_MAX_RETRIES: int = Field(default=2, ge=0, le=5)
     LLM_RETRY_BASE_DELAY_SECONDS: float = Field(default=0.5, ge=0.1, le=10)
 
-    model_config = {"env_file": ".env", "extra": "ignore"}
+    model_config = {
+        "env_file": (".env.development", ".env"),
+        "env_file_encoding": "utf-8",
+        "extra": "ignore",
+    }
 
     def validate_provider_configuration(self) -> None:
+        if not self.AI_API_KEY.strip():
+            raise ValueError("AI_API_KEY must be configured")
         if self.LLM_PROVIDER == "openai" and not self.OPENAI_API_KEY.strip():
             raise ValueError("OPENAI_API_KEY must be configured when LLM_PROVIDER=openai")
         if self.LLM_PROVIDER == "gemini" and not self.GEMINI_API_KEY.strip():
