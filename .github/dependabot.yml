@@ -8,6 +8,11 @@ updates:
       cronjob: "0 9 1 */2 *" # 09:00 on the 1st of every second month
       timezone: Europe/Istanbul
     open-pull-requests-limit: 5
+    ignore:
+      # Major updates are planned, tested and applied by hand: CI cannot catch every
+      # runtime break (Redis, Aspire, routing), and they often need code changes.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     groups:
       pip-minor-and-patch:
         update-types: [minor, patch]
