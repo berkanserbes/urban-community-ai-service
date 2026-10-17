@@ -1,5 +1,6 @@
 # Urban Community — Yapay Zekâ Servisi
 
+[![CI](https://github.com/berkanserbes/urban-community-ai-service/actions/workflows/ci.yml/badge.svg)](https://github.com/berkanserbes/urban-community-ai-service/actions/workflows/ci.yml)
 ![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
